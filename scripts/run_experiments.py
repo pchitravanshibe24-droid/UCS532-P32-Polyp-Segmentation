@@ -3,7 +3,9 @@
 import argparse
 import hashlib
 import json
+import os
 import shutil
+import subprocess
 import time
 import urllib.request
 from pathlib import Path
@@ -28,8 +30,18 @@ def prepare_kvasir(root):
     if not archive.exists():
         download = archive.with_suffix(".part")
         print(f"Downloading the official Kvasir-SEG archive from {DATA_URL}", flush=True)
-        with urllib.request.urlopen(DATA_URL, timeout=90) as response, download.open("wb") as output:
-            shutil.copyfileobj(response, output)
+        # Windows' native TLS stack can obtain a missing intermediate
+        # certificate from the issuer, unlike CPython's OpenSSL backend.
+        native_curl = Path(os.environ.get("SystemRoot", "C:/Windows")) / "System32/curl.exe"
+        if os.name == "nt" and native_curl.is_file():
+            subprocess.run(
+                [str(native_curl), "--fail", "--location", "--silent", "--show-error",
+                 "--retry", "2", "--max-time", "180", "--output", str(download), DATA_URL],
+                check=True,
+            )
+        else:
+            with urllib.request.urlopen(DATA_URL, timeout=90) as response, download.open("wb") as output:
+                shutil.copyfileobj(response, output)
         download.replace(archive)
     with archive.open("rb") as stream:
         digest = hashlib.file_digest(stream, "sha256").hexdigest()

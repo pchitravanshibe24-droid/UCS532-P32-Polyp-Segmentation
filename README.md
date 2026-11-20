@@ -20,7 +20,7 @@ python -m pytest -q
 python app.py
 ```
 
-The smoke run generates 20 synthetic pairs and exercises train–reload–evaluate on CPU. Its results are pipeline checks. The demo binds to localhost and uses the trained Kvasir UACANet by default when available. After initial setup it runs without an internet connection. Upload a local RGB image to display and download segmentation, polyp probabilities, UACA ambiguity, and an overlay.
+The smoke run generates 20 synthetic pairs and exercises train–reload–evaluate on CPU. Its results are pipeline checks. The demo binds to localhost and uses the trained Kvasir UACANet by default when available. After initial setup it runs without an internet connection. To use the weight file from the extracted course ZIP, pass `--checkpoint results/checkpoints/uacanet/best_model.pt` or the full extracted path. Upload a local RGB image to display and download segmentation, polyp probabilities, UACA ambiguity, and an overlay.
 
 ## Dataset and protocol
 
