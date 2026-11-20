@@ -14,6 +14,8 @@ bash run_all.sh
 
 The last command verifies and extracts the official dataset archive, creates the split, trains all three networks, freezes each validation-selected checkpoint and threshold, evaluates the held-out test set, exports diagnostic figures, and runs the corruption study. The main table appears in `outputs/kvasir/tables/main_table.csv`. It is generated from scratch. Downloads and run outputs stay local. For an offline benchmark rerun, place the official archive at `data/kvasir-seg.zip` before starting.
 
+A fresh local clone reproduced the recorded tables and training histories byte for byte. An independent Windows run completed the same command and preserved the model ranking. It selected different validation thresholds and produced different numerical scores. The [hosted run](https://github.com/pchitravanshibe24-droid/UCS532-P32-Polyp-Segmentation/actions/runs/44798481575), [hosted table](results/tables/hosted_main_table.csv), and [metric deltas](results/logs/hosted-comparison.log) record the cross-environment comparison.
+
 ```bash
 bash run_all.sh --smoke
 python -m pytest -q

@@ -1,0 +1,21 @@
+{
+  "seed": 42,
+  "ratios": [
+    0.7,
+    0.15,
+    0.15
+  ],
+  "total_samples": 1000,
+  "train_count": 700,
+  "val_count": 150,
+  "test_count": 150,
+  "disjoint_verified": true,
+  "duplicate_hashes_detected": 0,
+  "duplicate_pairs_removed": 0,
+  "archive_pairs_audited": 1000,
+  "split_fingerprints": {
+    "train": "211f4a48f8dd221133f39cb2a17a37f9986caebc6ef94f987ac55c9938083cd1",
+    "val": "521dbbf6415d63e22edefe7e039f69d539e53232067051c6d264b4f3202eab84",
+    "test": "60c2c203a54d2b564e4a561931761d4460273ab6dbb59e1020601573caf4d578"
+  }
+}

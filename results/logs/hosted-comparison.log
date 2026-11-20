@@ -1,0 +1,14 @@
+Frozen epoch and threshold
+              n_reference  epoch_reference  threshold_reference  parameters_reference  n_replay  epoch_replay  threshold_replay  parameters_replay
+model
+uacanet               150               12                  0.4                 54920       150            12               0.3              54920
+unet                  150               12                  0.7                121177       150            12               0.3             121177
+no_uncertain          150               12                  0.3                 54920       150            12               0.4              54920
+Metric delta (replay minus recorded)
+               dice_mean    iou_mean  precision_mean  recall_mean     f1_mean    mae_mean    dice_std     iou_std  precision_std  recall_std      f1_std     mae_std
+model
+uacanet      -0.00546351 -0.01008031     -0.04509694  +0.04804016 -0.00546351 +0.00590479 -0.01596140 -0.01442234    -0.01592333 -0.01893848 -0.01596140 -0.00167784
+unet         -0.01529531 -0.01637089     -0.02510829  +0.02519864 -0.01529531 -0.00218793 +0.00280236 -0.00439826    -0.00960533 +0.01396785 +0.00280236 +0.01175198
+no_uncertain -0.00441232 -0.00102208     +0.02126527  -0.03445467 -0.00441232 +0.00230762 +0.01041004 +0.00754171    +0.01368011 +0.00910944 +0.01041004 -0.00232993
+Largest absolute delta: 0.04804016
+All means and standard deviations match at four decimals: False
