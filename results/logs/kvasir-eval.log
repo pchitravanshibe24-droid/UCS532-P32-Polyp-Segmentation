@@ -1,0 +1,21 @@
+Microsoft Visual C++ Redistributable is not installed, this may lead to the DLL load failure.
+It can be downloaded at https://aka.ms/vs/17/release/vc_redist.x64.exe
+Evaluating uacanet
+Test pairs: 150 | Seed 42 | threshold 0.4 | checkpoint epoch 12
+dice 0.497692 | iou 0.378443 | precision 0.557349 | recall 0.598303 | f1 0.497692 | mae 0.156432
+Evaluating unet
+Test pairs: 150 | Seed 42 | threshold 0.7 | checkpoint epoch 12
+dice 0.603220 | iou 0.487851 | precision 0.685220 | recall 0.645508 | f1 0.603220 | mae 0.127777
+Evaluating no_uncertain
+Test pairs: 150 | Seed 42 | threshold 0.3 | checkpoint epoch 12
+dice 0.491184 | iou 0.367518 | precision 0.516409 | recall 0.633486 | f1 0.491184 | mae 0.157870
+                             name  epoch  threshold  dice_mean  iou_mean  precision_mean  recall_mean  f1_mean  mae_mean
+                  Compact UACANet     12        0.4   0.497692  0.378443        0.557349     0.598303 0.497692  0.156432
+                            U-Net     12        0.7   0.603220  0.487851        0.685220     0.645508 0.603220  0.127777
+UACANet without uncertain context     12        0.3   0.491184  0.367518        0.516409     0.633486 0.491184  0.157870
+Stress test | seed 42 | threshold 0.4 | test pairs 150
+             condition  count  mean_dice  mean_iou  mean_uncertainty  delta_dice  delta_uncertainty
+                 clean    150   0.497692  0.378443          0.081578    0.000000           0.000000
+gaussian_blur/moderate    150   0.492069  0.375273          0.081170   -0.005623          -0.000408
+     brightness/darker    150   0.497398  0.378273          0.081645   -0.000294           0.000067
+kvasir evaluate runtime: 115.96 s

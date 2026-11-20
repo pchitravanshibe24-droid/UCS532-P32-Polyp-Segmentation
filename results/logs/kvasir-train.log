@@ -1,0 +1,90 @@
+Microsoft Visual C++ Redistributable is not installed, this may lead to the DLL load failure.
+It can be downloaded at https://aka.ms/vs/17/release/vc_redist.x64.exe
+Kvasir-SEG archive SHA-256 03b30e21d584e04facf49397a2576738fd626815771afbbf788f74a7153478f7
+Discovered 1000 valid pairs. Computing file hashes for leakage checks...
+Split seed 42; removed 0 exact duplicate pairs; zero image hashes overlap.
+Saved train split (700 samples) to: outputs\kvasir\splits\train.csv
+Saved val split (150 samples) to: outputs\kvasir\splits\val.csv
+Saved test split (150 samples) to: outputs\kvasir\splits\test.csv
+Training uacanet | Seed 42
+======================================================================
+P32 — Polyp Segmentation with Explicit Pixel-Level Uncertainty
+======================================================================
+Python Version:   3.11.16
+PyTorch Version:  2.14.1+cpu
+Selected Device:  cpu
+CPU: AMD Ryzen 5 5500U with Radeon Graphics | Torch threads: 4
+Hardware Note:    Running in CPU mode (local default)
+Project Name:     Kvasir-SEG
+Configured Seed:  42
+======================================================================
+Train pairs: 700 | Validation pairs: 150 | Trainable parameters: 54920
+Epoch 01 | train loss 4.8457 | validation loss 4.4679 | validation Dice 0.4273 | threshold 0.30
+Epoch 02 | train loss 4.5634 | validation loss 4.4606 | validation Dice 0.4311 | threshold 0.40
+Epoch 03 | train loss 4.4898 | validation loss 4.3679 | validation Dice 0.4559 | threshold 0.50
+Epoch 04 | train loss 4.3744 | validation loss 4.3726 | validation Dice 0.4439 | threshold 0.30
+Epoch 05 | train loss 4.3269 | validation loss 4.2860 | validation Dice 0.4587 | threshold 0.30
+Epoch 06 | train loss 4.2356 | validation loss 4.0628 | validation Dice 0.4848 | threshold 0.30
+Epoch 07 | train loss 4.1749 | validation loss 4.0211 | validation Dice 0.5032 | threshold 0.30
+Epoch 08 | train loss 4.1096 | validation loss 4.0892 | validation Dice 0.4997 | threshold 0.50
+Epoch 09 | train loss 4.0678 | validation loss 4.3238 | validation Dice 0.4582 | threshold 0.30
+Epoch 10 | train loss 4.1374 | validation loss 3.8820 | validation Dice 0.5322 | threshold 0.40
+Epoch 11 | train loss 3.9915 | validation loss 3.9443 | validation Dice 0.5404 | threshold 0.30
+Epoch 12 | train loss 3.9397 | validation loss 3.7082 | validation Dice 0.5693 | threshold 0.40
+Selected epoch 12 | validation Dice 0.569341 | checkpoint checkpoints\kvasir\uacanet\best_model.pt
+Training runtime uacanet: 209.39 s
+Training unet | Seed 42
+======================================================================
+P32 — Polyp Segmentation with Explicit Pixel-Level Uncertainty
+======================================================================
+Python Version:   3.11.16
+PyTorch Version:  2.14.1+cpu
+Selected Device:  cpu
+CPU: AMD Ryzen 5 5500U with Radeon Graphics | Torch threads: 4
+Hardware Note:    Running in CPU mode (local default)
+Project Name:     Kvasir-SEG
+Configured Seed:  42
+======================================================================
+Train pairs: 700 | Validation pairs: 150 | Trainable parameters: 121177
+Epoch 01 | train loss 1.4234 | validation loss 1.3890 | validation Dice 0.4319 | threshold 0.50
+Epoch 02 | train loss 1.2855 | validation loss 1.2385 | validation Dice 0.4545 | threshold 0.50
+Epoch 03 | train loss 1.1902 | validation loss 1.2318 | validation Dice 0.4951 | threshold 0.60
+Epoch 04 | train loss 1.1206 | validation loss 1.1114 | validation Dice 0.4891 | threshold 0.40
+Epoch 05 | train loss 1.0536 | validation loss 1.0500 | validation Dice 0.5195 | threshold 0.40
+Epoch 06 | train loss 0.9944 | validation loss 1.0783 | validation Dice 0.4570 | threshold 0.30
+Epoch 07 | train loss 0.9309 | validation loss 1.0313 | validation Dice 0.4879 | threshold 0.30
+Epoch 08 | train loss 0.8898 | validation loss 0.8567 | validation Dice 0.6280 | threshold 0.50
+Epoch 09 | train loss 0.8489 | validation loss 0.8852 | validation Dice 0.6066 | threshold 0.60
+Epoch 10 | train loss 0.8224 | validation loss 0.8622 | validation Dice 0.6398 | threshold 0.70
+Epoch 11 | train loss 0.7827 | validation loss 0.8459 | validation Dice 0.6087 | threshold 0.30
+Epoch 12 | train loss 0.7496 | validation loss 0.7290 | validation Dice 0.6926 | threshold 0.70
+Selected epoch 12 | validation Dice 0.692569 | checkpoint checkpoints\kvasir\unet\best_model.pt
+Training runtime unet: 151.38 s
+Training no_uncertain | Seed 42
+======================================================================
+P32 — Polyp Segmentation with Explicit Pixel-Level Uncertainty
+======================================================================
+Python Version:   3.11.16
+PyTorch Version:  2.14.1+cpu
+Selected Device:  cpu
+CPU: AMD Ryzen 5 5500U with Radeon Graphics | Torch threads: 4
+Hardware Note:    Running in CPU mode (local default)
+Project Name:     Kvasir-SEG
+Configured Seed:  42
+======================================================================
+Train pairs: 700 | Validation pairs: 150 | Trainable parameters: 54920
+Epoch 01 | train loss 4.8381 | validation loss 4.4646 | validation Dice 0.4276 | threshold 0.30
+Epoch 02 | train loss 4.5817 | validation loss 4.4544 | validation Dice 0.4331 | threshold 0.40
+Epoch 03 | train loss 4.4977 | validation loss 4.3207 | validation Dice 0.4589 | threshold 0.40
+Epoch 04 | train loss 4.3913 | validation loss 4.3601 | validation Dice 0.4486 | threshold 0.30
+Epoch 05 | train loss 4.3448 | validation loss 4.3487 | validation Dice 0.4469 | threshold 0.30
+Epoch 06 | train loss 4.2856 | validation loss 4.1145 | validation Dice 0.4836 | threshold 0.40
+Epoch 07 | train loss 4.2300 | validation loss 4.0677 | validation Dice 0.4913 | threshold 0.40
+Epoch 08 | train loss 4.1457 | validation loss 4.0762 | validation Dice 0.4972 | threshold 0.40
+Epoch 09 | train loss 4.1481 | validation loss 4.1764 | validation Dice 0.4876 | threshold 0.40
+Epoch 10 | train loss 4.1549 | validation loss 3.9738 | validation Dice 0.5241 | threshold 0.40
+Epoch 11 | train loss 4.0231 | validation loss 3.9602 | validation Dice 0.5247 | threshold 0.40
+Epoch 12 | train loss 3.9904 | validation loss 3.8166 | validation Dice 0.5422 | threshold 0.30
+Selected epoch 12 | validation Dice 0.542242 | checkpoint checkpoints\kvasir\no_uncertain\best_model.pt
+Training runtime no_uncertain: 169.40 s
+kvasir train runtime: 561.61 s

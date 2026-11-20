@@ -1,0 +1,99 @@
+project:
+  name: Kvasir-SEG
+  seed: 42
+  device: cpu
+  threads: 4
+paths:
+  data_root: data/Kvasir-SEG
+  images_dir: data/Kvasir-SEG/images
+  masks_dir: data/Kvasir-SEG/masks
+  splits_dir: outputs/kvasir/splits
+  train_split: outputs/kvasir/splits/train.csv
+  val_split: outputs/kvasir/splits/val.csv
+  test_split: outputs/kvasir/splits/test.csv
+  checkpoints_dir: checkpoints/kvasir/unet
+  best_checkpoint: checkpoints/kvasir/unet/best_model.pt
+  metrics_dir: outputs/kvasir/unet/metrics
+  figures_dir: outputs/kvasir/unet/figures
+data:
+  image_size:
+  - 96
+  - 96
+  mask_threshold: 127
+  split_ratios:
+  - 0.7
+  - 0.15
+  - 0.15
+  num_workers: 0
+augmentation:
+  enabled: true
+  horizontal_flip_prob: 0.5
+  vertical_flip_prob: 0.5
+  rotation_limit: 15
+  scale_limit: 0.1
+  brightness_contrast_prob: 0.3
+  color_jitter_prob: 0.2
+model:
+  architecture: unet
+  features:
+  - 8
+  - 16
+  - 32
+  dropout_prob: 0.0
+loss:
+  type: bce_iou
+training:
+  batch_size: 12
+  epochs: 12
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  scheduler:
+    factor: 0.5
+    patience: 3
+    min_lr: 1.0e-06
+  early_stopping:
+    enabled: false
+    patience: 6
+inference:
+  threshold_grid:
+  - 0.3
+  - 0.4
+  - 0.5
+  - 0.6
+  - 0.7
+  evaluation_threshold: 0.5
+  mc_passes: 1
+  log_base: natural
+stress_tests:
+  seed: 42
+  factors:
+    gaussian_blur:
+      mild:
+        kernel_size: 5
+        sigma: 1.5
+      moderate:
+        kernel_size: 11
+        sigma: 3.0
+    brightness:
+      darker:
+        factor: 0.6
+      brighter:
+        factor: 1.4
+    gaussian_noise:
+      mild:
+        std: 15.0
+      moderate:
+        std: 35.0
+    contrast:
+      reduced:
+        factor: 0.6
+      increased:
+        factor: 1.4
+    scale:
+      downscale:
+        scale: 0.5
+    jpeg_compression:
+      moderate:
+        quality: 40
+      strong:
+        quality: 15

@@ -1,0 +1,73 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Datasets (do not commit large raw images)
+data/Kvasir-SEG/
+data/CVC-ClinicDB/
+data/synthetic/
+
+# Model checkpoints & runs
+checkpoints/*.pt
+checkpoints/*.pth
+!checkpoints/.gitkeep
+
+# Outputs and logs
+outputs/predictions/
+outputs/logs/
+outputs/metrics/
+outputs/figures/
+!outputs/.gitkeep
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local data, reference downloads, and generated submission artifacts
+/data/*
+!/data/README.md
+/checkpoints/
+/outputs/
+/splits/
+/submission/
+/.submission-tools/
+/pre-uaca-backup.zip
+/2107.02368v3 (1).pdf
+/UACANet-main (1).zip

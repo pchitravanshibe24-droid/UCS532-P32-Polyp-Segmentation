@@ -1,0 +1,86 @@
+# Smoke Test Configuration for P32 Synthetic Pipeline (Fast CPU Verification)
+# ===========================================================================
+
+project:
+  name: "P32-Polyp-Segmentation-SmokeTest"
+  seed: 42
+  device: "cpu"
+
+paths:
+  data_root: "data/synthetic"
+  images_dir: "data/synthetic/images"
+  masks_dir: "data/synthetic/masks"
+  splits_dir: "splits/synthetic"
+  train_split: "splits/synthetic/train.csv"
+  val_split: "splits/synthetic/val.csv"
+  test_split: "splits/synthetic/test.csv"
+  checkpoints_dir: "checkpoints/smoke"
+  best_checkpoint: "checkpoints/smoke/best_model.pt"
+  outputs_dir: "outputs/smoke"
+  logs_dir: "outputs/smoke/logs"
+  metrics_dir: "outputs/smoke/metrics"
+  figures_dir: "outputs/smoke/figures"
+  predictions_dir: "outputs/smoke/predictions"
+
+data:
+  image_size: [64, 64]            # Small image resolution for ultra-fast CPU smoke testing
+  image_interpolation: "bilinear"
+  mask_interpolation: "nearest"
+  normalization: "zero_to_one"
+  mask_threshold: 127
+  split_ratios: [0.60, 0.20, 0.20]
+  num_workers: 0
+
+augmentation:
+  enabled: true
+  horizontal_flip_prob: 0.5
+  vertical_flip_prob: 0.5
+  rotation_limit: 10
+  scale_limit: 0.05
+  brightness_contrast_prob: 0.2
+  color_jitter_prob: 0.1
+
+model:
+  architecture: "unet"
+  in_channels: 3
+  out_channels: 1
+  features: [16, 32, 64, 128]     # Lightweight channel widths for fast CPU compute
+  dropout_prob: 0.2
+  dropout_locations: ["bottleneck", "decoder_upper"]
+
+loss:
+  lambda_bce: 0.5
+  lambda_dice: 0.5
+  dice_smooth: 1.0e-6
+
+training:
+  batch_size: 4
+  epochs: 2                       # 2 epochs just to verify forward, backward, step & checkpointing
+  learning_rate: 1.0e-3
+  weight_decay: 1.0e-4
+  optimizer: "adamw"
+  scheduler:
+    type: "reduce_lr_on_plateau"
+    mode: "min"
+    factor: 0.5
+    patience: 1
+    min_lr: 1.0e-6
+  early_stopping:
+    enabled: false
+    patience: 2
+    metric: "val_dice"
+    mode: "max"
+
+inference:
+  evaluation_threshold: 0.5
+  mc_passes: 5                    # Small pass count for smoke test
+  log_base: "natural"
+  clamp_eps: 1.0e-7
+
+stress_tests:
+  seed: 42
+  factors:
+    gaussian_blur:
+      mild: { kernel_size: 3, sigma: 1.0 }
+    brightness:
+      darker: { factor: 0.7 }

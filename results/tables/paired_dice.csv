@@ -1,0 +1,3 @@
+reference,count,mean_delta_dice,median_delta_dice,wins,ties,losses
+unet,150,-0.10552808938375809,-0.08661637838255698,34,6,110
+no_uncertain,150,0.006507815523034621,0.007136785619070468,80,10,60

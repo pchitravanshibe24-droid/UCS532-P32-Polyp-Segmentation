@@ -1,0 +1,6 @@
+Microsoft Visual C++ Redistributable is not installed, this may lead to the DLL load failure.
+It can be downloaded at https://aka.ms/vs/17/release/vc_redist.x64.exe
+Evaluating uacanet
+Test pairs: 4 | Seed 42 | threshold 0.5 | checkpoint epoch 1
+dice 0.000000 | iou 0.000000 | precision 0.000000 | recall 0.000000 | f1 0.000000 | mae 0.142369
+smoke evaluate runtime: 11.74 s

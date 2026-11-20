@@ -1,0 +1,35 @@
+{
+  "dataset_name": "Kvasir-SEG",
+  "seed": 42,
+  "device": "cpu",
+  "test_sample_count": 150,
+  "threshold": 0.4,
+  "epoch": 12,
+  "validation_dice": 0.5693406677246093,
+  "trainable_parameters": 54920,
+  "mc_passes": 1,
+  "uncertainty_kind": "UACA",
+  "metrics_macro_mean": {
+    "dice": 0.497691725192369,
+    "iou": 0.3784427836936946,
+    "precision": 0.5573493721991332,
+    "recall": 0.5983027533414346,
+    "f1": 0.497691725192369,
+    "mae": 0.15643244298795858
+  },
+  "metrics_macro_std": {
+    "dice": 0.28319497657002163,
+    "iou": 0.2540581534975342,
+    "precision": 0.3543400611537676,
+    "recall": 0.34637993635340947,
+    "f1": 0.28319497657002163,
+    "mae": 0.10263588905423816
+  },
+  "uncertainty_error_auroc": 0.8069626878974718,
+  "entropy_error_auroc": 0.8140377872508743,
+  "region_uncertainty": {
+    "boundary": 0.1765314524465551,
+    "interior": 0.15882585948333144,
+    "background": 0.05747491347293059
+  }
+}
